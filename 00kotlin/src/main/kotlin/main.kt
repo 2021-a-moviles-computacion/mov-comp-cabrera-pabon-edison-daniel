@@ -2,7 +2,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 fun main() {
-    println("Hola Mundo")
+    //println("Hola Mundo")
     //Tipo nombre=valor
     //Int edad=12;
     var edadProfesor = 32
@@ -48,7 +48,7 @@ fun main() {
         else -> prinln("NO Reconocido")
     }*/
 
-    imprimirNombre("Edison")
+    //imprimirNombre("Edison")
     calcularSueldo(1000.00)
     calcularSueldo(1000.00, 14.00)
 
@@ -72,7 +72,7 @@ fun main() {
 
     //Dinámicos
     val arregloDinamico: ArrayList<Int> = arrayListOf(1,2,3,4,5,6,7)
-    println(arregloDinamico)
+    /*println(arregloDinamico)
     arregloDinamico.add(11)
     arregloDinamico.add(12)
 
@@ -126,7 +126,59 @@ fun main() {
 }
 
 fun imprimirNombre(nombre: String):Unit {
-println("Nombre: ${nombre}")
+println("Nombre: ${nombre}")*/
+
+
+    //REDUCE -> VALOR ACUMULADO
+    // 1) Devuelve el acumulado => 0
+    // 2) En que valor empieza => 0
+    // [1,2,3,4,5]
+    //valorIteración = valorEmpieza +1 -> iteración 1
+    //3 = valorIteración1 + 2 = 1+2 = acumulado -> iteración2
+    //6 = valorIteración3 + 3 = 3+3 = acumulado -> iteración3
+    //10 = valorIteración4 + 4 = 6+3 = acumulado -> iteración4
+    //16 = valorIteración1 + 5 = 10+5 = acumulado -> iteración5
+    // Ultimo Acumulado
+
+    val respuestasReduce: Int = arregloDinamico
+        .reduce{ //acumulado = 0 -> siempre empieza en cero
+            acumulado: Int, valorActual: Int ->
+            return@reduce (acumulado + valorActual) // -> Logica negocio
+        }
+    //println(respuestasReduce) // 28
+
+    val arregloDanio = arrayListOf<Int>(12,5,8,10)
+    val respuestaReduceFold = arregloDanio
+        .fold(
+             100,
+            { acumulado, valorActualIteration ->
+                return@fold acumulado - valorActualIteration
+            }
+        )
+    //println(respuestaReduceFold)
+
+    val vidaActual: Double = arregloDinamico
+        .map { it *2.3 }//arreglo
+        .filter { it > 20 }//arreglo
+        .fold(100.00, {acc, i -> acc -i})//valor
+        .also { println(it) }// ejecutar codigo extra
+   //println("Valor vida actual ${vidaActual}")
+
+   val ejemploUno = Suma(1, 2)
+    //val ejemploUno = Suma(1,2)
+    val ejemploDos = Suma(null, 2)
+    //val ejemploDos = Suma(null,2)
+    val ejemploTres = Suma(1, null)
+    //val ejemploTres = Suma(1,null)
+    println(ejemploUno.sumar())
+    println(Suma.historialSumas)
+    println(ejemploDos.sumar())
+    println(Suma.historialSumas)
+    println(ejemploTres.sumar())
+    println(Suma.historialSumas)
+
+
+
 }
 
 fun calcularSueldo(
@@ -141,5 +193,86 @@ if (bonoEspecial == null) { //indentar -> ctrl + a -> ctrl +a+l
 else{
 return sueldo * (100 / 14) + bonoEspecial
 }
+}
+
+
+//CLASES
+
+abstract class NumerosJava{
+    protected val numeroUno: Int
+    private val numeroDos: Int
+    constructor(
+        uno: Int,
+        dos: Int,
+    ){
+        numeroUno=uno
+        numeroDos=dos
+        println("Inicializar")
+    }
+}
+
+
+//instancia numeroUno
+//instancia numeroDos
+abstract class  Numeros(// constructor Primario
+    protected  var numeroUno: Int,
+    protected var numeroDos: Int
+){
+    init {
+        println("Inicializar")
+    }
+}
+
+
+//instancia numeroUno
+//instancia numeroDos
+
+class Suma(
+    uno: Int, //parámetro requerido
+    dos: Int, //parámetro requerido
+):Numeros(//constructor papá(Super)
+  uno,
+    dos,
+){
+    init {
+        this.numeroUno
+        this.numeroDos
+         //x -> this.uno -> NO EXISTEN
+        //x -> this.dos -> NO EXISTEN
+    }
+    constructor(//Segundo Constructor
+        uno: Int?, //parámetros
+        dos: Int //parámetros
+    ): this(//llamada constructor primario
+        if (uno==null) 0 else uno,
+        dos
+    )
+
+    constructor(//Tercer Constructor
+        uno: Int, //parámetros
+        dos: Int? //parámetros
+    ): this(//llamada constructor primario
+        uno,
+        if (dos==null) 0 else dos
+    )
+
+    //public fun sumar():Int{
+    fun sumar():Int{
+        // val total: Int = this.numeroUno + this.numeroDos
+        val total: Int = numeroUno + numeroDos
+        agregarHistoriral(total)
+        return total
+    }
+
+    //SINGLETON
+    companion object{
+        val historialSumas= arrayListOf<Int>()
+        fun agregarHistoriral(valorNuevaSuma: Int){
+            //this.historialSumas.add(valorNuevaSuma)
+            historialSumas.add(valorNuevaSuma)
+            println(historialSumas)
+        }
+    }
 
 }
+
