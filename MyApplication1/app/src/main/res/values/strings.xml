@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">My Application1</string>
+    <string name="eliminar_usuario">Eliminar Usuario</string>
+    <string name="crear_usuario">Crear Usuario</string>
+    <string name="consultar_usuario">Consultar Usuario</string>
+    <string name="actualizar_usuario">Actualizar Usuario</string>
+    <string-array name="string_array_opciones_dialogo">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>

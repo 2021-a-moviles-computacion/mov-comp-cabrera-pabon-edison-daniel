@@ -84,7 +84,7 @@ class Personas {
             ingresarPersonas(objPersona.toString(), "personas.txt")
 
 
-            iSiga = JOptionPane.showConfirmDialog(null, "Confirme si desea ingresar nuevos clientes")
+            iSiga = JOptionPane.showConfirmDialog(null, "Confirme si desea ingresar nuevas personas")
             if (iSiga != 0) {
                 println("\n\nPersonas Ingresadas Exitosamente")
                 bln = true
@@ -212,7 +212,7 @@ class Personas {
                         text = text.replace(oldvalue.toRegex(), actualizado)
                         File("personas.txt").writeText(text)
                         println("")
-                        println("Datos de Cliente Actualizado")
+                        println("Datos de Persona Actualizado")
                         leerPersonas()
                         break
                     } catch (e: Exception) {
@@ -244,7 +244,7 @@ class Personas {
                         text = text.replace(oldvalue.toRegex(), actualizado)
                         File("personas.txt").writeText(text)
                         println("")
-                        println("Datos de Cliente Actualizado")
+                        println("Datos de Persona Actualizado")
                         leerPersonas()
                         break
                     } catch (e: Exception) {

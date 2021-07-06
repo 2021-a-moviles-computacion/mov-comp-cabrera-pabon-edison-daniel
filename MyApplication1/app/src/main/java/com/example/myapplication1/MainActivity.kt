@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        EBaseDatos.TablaUsuario = ESqliteHelperUsuario(this)
         //this.findViewById<>()
         val botonIrA1CicloVida = findViewById<Button>(
             R.id.btn_ciclo_vida
@@ -42,6 +43,12 @@ class MainActivity : AppCompatActivity() {
         botonIrIntent
             .setOnClickListener{abrirActividadConParametros(CIntentExplicitoParametros::class.java)}
 
+        val botonIrcrud = findViewById<Button>(
+            R.id.btn_bd
+        )
+        botonIrcrud
+            .setOnClickListener{abrirActividad(CRUD::class.java)}
+
         val botonAbrirIntentImplicito = findViewById<Button>(
             R.id.btn_ir_intent_implicito
         )
@@ -52,12 +59,9 @@ class MainActivity : AppCompatActivity() {
             )
             startActivityForResult(intentConRespuesta,CODIGO_RESPUESTA_INTENT_EXPLICITO)
 
+
         }
     }
-
-
-
-
 
 
 

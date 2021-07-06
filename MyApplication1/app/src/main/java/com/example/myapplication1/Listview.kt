@@ -1,5 +1,6 @@
 package com.example.myapplication1
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import androidx.appcompat.app.AlertDialog
 
 class Listview : AppCompatActivity() {
     var posicionItemSeleccionado = 0
@@ -37,12 +39,46 @@ class Listview : AppCompatActivity() {
             arregloNumeros,
             adaptador
         )}
-        /*listViewEjemplo
+        listViewEjemplo
             .setOnItemLongClickListener { adapterView, view, position, id ->
                 Log.i("list-view","Dio click ${position}")
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Titulo")
+                //builder.setMessage("Mensaje")
+
+                val seleccionUsuario = booleanArrayOf(
+                    true,
+                    false,
+                    false
+                )
+
+                val opciones = resources.getStringArray(R.array.string_array_opciones_dialogo)
+
+                builder.setMultiChoiceItems(
+                    opciones,
+                    seleccionUsuario,
+                    { dialog, which, isChecked ->
+                      Log.i("list-view", "${which} ${isChecked}")
+                    }
+                )
+
+                builder.setPositiveButton(
+                    "SI",
+                    DialogInterface.OnClickListener{ dialog, which ->
+                        Log.i("list-view","Si")
+                    }
+                )
+
+                builder.setNegativeButton(
+                    "NO",
+                    null
+                )
+                val dialogo = builder.create()
+                dialogo.show()
+
                 return@setOnItemLongClickListener true
-            }*/
-        registerForContextMenu(listViewEjemplo)
+            }
+        //registerForContextMenu(listViewEjemplo)
     }
 
 
