@@ -58,11 +58,15 @@ class MainActivity : AppCompatActivity() {
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI
             )
             startActivityForResult(intentConRespuesta,CODIGO_RESPUESTA_INTENT_EXPLICITO)
+        }
 
-
+        val botonAbrirRecyclerView = findViewById<Button>(
+            R.id.btn_ir_recyclerview
+        )
+        botonAbrirRecyclerView.setOnClickListener{
+            abrirActividadConParametros(GRecyclerView::class.java)
         }
     }
-
 
 
      /*fun abrirCicloVida(){
