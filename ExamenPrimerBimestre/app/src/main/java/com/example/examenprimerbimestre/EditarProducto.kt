@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.Dispatchers
@@ -21,40 +22,43 @@ class EditarProducto : AppCompatActivity() {
 
         val ADao = db.productoDao
 
-        val nombre = findViewById<TextInputLayout>(R.id.tinModificarNombre)
-        val precio = findViewById<TextInputLayout>(R.id.tinModificarApellido)
-        val fechaIng = findViewById<TextInputLayout>(R.id.tinModificarFechaNac)
-        val disponibilidad = findViewById<TextInputLayout>(R.id.tinModificarGenero)
-        val cantidad = findViewById<TextInputLayout>(R.id.tinModificarEdad)
+        val nombreProducto = findViewById<TextInputLayout>(R.id.tinModificarNombreProducto)
+        val precio = findViewById<TextInputLayout>(R.id.tinModificarPrecio)
+        val fechaIng = findViewById<TextInputLayout>(R.id.tinModificarFechaIngreso)
+        val disponibilidad = findViewById<TextInputLayout>(R.id.tinModificarDisponibilidad)
+        val cantidad = findViewById<TextInputLayout>(R.id.tinModificarCantidad)
         var disp: Boolean = false
 
         val actual = ADao.get_id_producto(id_actual)
 
         actual?.observe(this, Observer{ words ->
             words?.let {
-                nombre.hint = it.Nombre_producto
+                nombreProducto.hint = it.Nombre_producto
                 precio.hint = it.Precio_producto.toString()
                 fechaIng.hint = it.Fecha_ingreso_producto
-                disponibilidad.hint = it.Disponibilidad_producto.toString()
+                if(it.Disponibilidad_producto){
+                    disponibilidad.hint = "S"
+                } else {
+                    disponibilidad.hint = "N"
+                }
                 cantidad.hint = it.Cantidad_producto.toString()
             }
         });
 
-        val btnModificarActor = findViewById<Button>(R.id.btnModificarActor)
-        btnModificarActor.setOnClickListener {
-            var nombreT = ""
+        val btnActualizarProducto = findViewById<Button>(R.id.btnActualizarProducto)
+        btnActualizarProducto.setOnClickListener {
+            var nombreProductoT=""
             var precioT = ""
-            var fechaIngT = ""
             var cantidadT = ""
             var bandera = 0
 
-            if (nombre.editText?.text.toString() == "") {
-                nombreT = nombre.hint.toString()
-                nombre.boxBackgroundColor = Color.rgb(224, 224, 224)
+            if (nombreProducto.editText?.text.toString() == "") {
+                nombreProducto.boxBackgroundColor = Color.rgb(224, 224, 224)
+                nombreProductoT = nombreProducto.hint.toString()
                 bandera++
             } else {
-                nombre.boxBackgroundColor = Color.rgb(224, 224, 224)
-                nombreT = nombre.editText?.text.toString()
+                nombreProducto.boxBackgroundColor = Color.rgb(224, 224, 224)
+                nombreProductoT = nombreProducto.editText?.text.toString()
                 bandera++
             }
 
@@ -70,19 +74,18 @@ class EditarProducto : AppCompatActivity() {
 
             when {
                 fechaIng.editText?.text.toString() == "" -> {
-                    fechaIng.boxBackgroundColor = Color.rgb(224, 224, 224)
-                    fechaIngT = fechaIng.hint.toString()
+                    fechaIng.boxBackgroundColor = Color.RED
+                    fechaIng.hint.toString()
                     bandera++
                 }
                 fechaIng.editText?.text.toString().matches(Regex("""((((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d${'$'})|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96))""")) -> {
                     fechaIng.boxBackgroundColor = Color.rgb(224, 224, 224)
-                    fechaIngT = fechaIng.editText?.text.toString()
                     bandera++
                 }
                 else -> {
                     fechaIng.boxBackgroundColor = Color.RED
-                    fechaIng.hint = "Ingrese una Fecha en el formato especificado"
-                    bandera = 0
+                    fechaIng.hint = "Ingrese la Fecha en el formato especificado"
+                    bandera++
                 }
             }
 
@@ -95,7 +98,7 @@ class EditarProducto : AppCompatActivity() {
                 else -> {
                     disponibilidad.boxBackgroundColor = Color.RED
                     disponibilidad.hint = "Sólo se permite S o N"
-                    bandera = 0
+                    bandera++
                 }
             }
 
@@ -109,17 +112,19 @@ class EditarProducto : AppCompatActivity() {
             }
 
             if (bandera == 5) {
-                val actor = ProductoEntity(
+                val producto = ProductoEntity(
                     id_Persona = id_persona,
-                    Nombre_producto = nombreT,
+                    id_Producto = id_actual,
+                    Nombre_producto = nombreProductoT,
                     Precio_producto = precioT.toDouble(),
-                    Fecha_ingreso_producto = fechaIngT,
+                    Fecha_ingreso_producto = fechaIng.editText?.text.toString(),
                     Disponibilidad_producto = disp,
                     Cantidad_producto = Integer.parseInt(cantidadT)
                 )
                 GlobalScope.launch(Dispatchers.IO) {
-                    ADao.update_producto(actor)
+                    ADao.update_producto(producto)
                 }
+                Toast.makeText(this,"Producto actualizado corectamente", Toast.LENGTH_SHORT).show()
                 this.finish()
             }
         }

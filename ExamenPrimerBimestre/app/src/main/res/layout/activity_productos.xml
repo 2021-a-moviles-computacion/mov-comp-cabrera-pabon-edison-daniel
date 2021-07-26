@@ -10,7 +10,9 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reparto"
+        android:text="Productos de la "
+        android:textColor="#980FAF"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -23,14 +25,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Serie"
-        app:layout_constraintBottom_toTopOf="@+id/btnCrearActor"
+        android:text="Persona"
+        android:textColor="#910AA8"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnIngresarProducto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ListView
-        android:id="@+id/lst_actores"
+        android:id="@+id/lst_productos"
         android:layout_width="264dp"
         android:layout_height="372dp"
         android:layout_marginBottom="64dp"
@@ -40,12 +44,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnCrearActor"
+        android:id="@+id/btnIngresarProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
-        android:text="Crear actor"
-        app:layout_constraintBottom_toTopOf="@+id/lst_actores"
+        android:text="Ingresar Producto"
+        app:backgroundTint="#FF9800"
+        app:layout_constraintBottom_toTopOf="@+id/lst_productos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

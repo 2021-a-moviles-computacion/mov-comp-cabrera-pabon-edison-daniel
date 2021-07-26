@@ -7,66 +7,98 @@
     tools:context=".EditarPersona">
 
     <TextView
-        android:id="@+id/txtNombreSerie"
+        android:id="@+id/txtActualizarPersona"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
-        android:text="Nombre Serie"
+        android:text="Actualizar Persona"
+        android:textColor="#E6400C"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tinModificarNombreSerie"
+        android:id="@+id/tinModificarNombrePersona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombreSerie"
+        app:layout_constraintTop_toBottomOf="@+id/txtActualizarPersona"
         tools:layout_editor_absoluteX="195dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tintModificarNombreSerie"
+            android:id="@+id/tintModificarNombrePersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre" />
+            android:hint="Nombre"
+            android:visibility="visible" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tinModificarApellidoPersona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tinModificarNombrePersona"
+            tools:layout_editor_absoluteX="195dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tintModificarApellidoPersona"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Apellido"
+                android:visibility="visible" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tinModificarEdadPersona"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tinModificarApellidoPersona"
+        tools:layout_editor_absoluteX="195dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tintModificarEdadPersona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Edad" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tinModificarClasificacionSerie"
+        android:id="@+id/tinModificarCorreoPersona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tinModificarNombreSerie"
+        app:layout_constraintTop_toBottomOf="@+id/tinModificarEdadPersona"
         tools:layout_editor_absoluteX="204dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tintModificarClasificacionSerie"
+            android:id="@+id/tintModificarCorreoPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Clasificación" />
+            android:hint="Correo Electrónico" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tinModificarAlAire"
+        android:id="@+id/tinModificarTelefonoPersona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tinModificarClasificacionSerie"
+        app:layout_constraintTop_toBottomOf="@+id/tinModificarCorreoPersona"
         tools:layout_editor_absoluteX="203dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tintModificarAlAire"
+            android:id="@+id/tintModificarTelefonoPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Está al aire" />
+            android:hint="Teléfono" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnModificarSerie"
+        android:id="@+id/btnActualizarPersona"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
-        android:text="Modificar"
+        android:text="Actualizar"
+        app:backgroundTint="#FFC107"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tinModificarAlAire" />
+        app:layout_constraintTop_toBottomOf="@+id/tinModificarTelefonoPersona" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,11 +4,13 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+
 
 
 class EditarPersona : AppCompatActivity() {
@@ -17,52 +19,55 @@ class EditarPersona : AppCompatActivity() {
         setContentView(R.layout.activity_editar_persona)
         val id_actual = intent.getIntExtra("id_actual",0)
         var db:Database.PersonasDatabase  = Database.PersonasDatabase.getInstance(this)
-        val nombre = findViewById<TextInputLayout>(R.id.tinModificarNombreSerie)
-        val apellido = findViewById<TextInputLayout>(R.id.tinModificarClasificacionSerie)
-        val edad = findViewById<TextInputLayout>(R.id.tinModificarAlAire)
+        val nombre = findViewById<TextInputLayout>(R.id.tinModificarNombrePersona)
+        val apellido = findViewById<TextInputLayout>(R.id.tinModificarApellidoPersona)
+        val edad = findViewById<TextInputLayout>(R.id.tinModificarEdadPersona)
+        val correo = findViewById<TextInputLayout>(R.id.tinModificarCorreoPersona)
+        val telefono = findViewById<TextInputLayout>(R.id.tinModificarTelefonoPersona)
 
         var SDao = db.personaDao
         val actual = SDao.get_id_persona(id_actual)
 
         actual?.observe(this, Observer{ words ->
-            // Update the cached copy of the words in the adapter.
             words?.let {
                 nombre.hint = it.Nombre_persona
                 apellido.hint = it.Apellido_persona
                 edad.hint = it.Edad_persona.toString()
-                /*if(it.Al_aire_serie){
-                    edad.hint = "S"
-                } else {
-                    edad.hint = "N"
-                }*/
+                correo.hint = it.Email_persona
+                telefono.hint = it.Telefono_persona
+
             }
         });
 
-        val btnModificarSerie = findViewById<Button>(R.id.btnModificarSerie)
+        val btnModificarSerie = findViewById<Button>(R.id.btnActualizarPersona)
         btnModificarSerie.setOnClickListener {
-            var nombreT= ""
+            var nombreT = ""
             var apellidoT = ""
+            var correoT= ""
+            var telefonoT = ""
             var edadT = ""
             var bandera = 0
 
             if (nombre.editText?.text.toString() == "") {
                 nombreT = nombre.hint.toString()
                 nombre.boxBackgroundColor = Color.rgb(224, 224, 224)
-                bandera ++
+                bandera++
             } else {
                 nombre.boxBackgroundColor = Color.rgb(224, 224, 224)
                 nombreT = nombre.editText?.text.toString()
                 bandera++
             }
+
             if (apellido.editText?.text.toString() == "") {
                 apellidoT = apellido.hint.toString()
                 apellido.boxBackgroundColor = Color.rgb(224, 224, 224)
-                bandera ++
+                bandera++
             } else {
                 apellido.boxBackgroundColor = Color.rgb(224, 224, 224)
-                apellidoT = nombre.editText?.text.toString()
+                apellidoT = apellido.editText?.text.toString()
                 bandera++
             }
+
             if (edad.editText?.text.toString() == "") {
                 edadT = edad.hint.toString()
                 edad.boxBackgroundColor = Color.rgb(224, 224, 224)
@@ -73,17 +78,39 @@ class EditarPersona : AppCompatActivity() {
                 bandera++
             }
 
+            if (correo.editText?.text.toString() == "") {
+                correoT = correo.hint.toString()
+                correo.boxBackgroundColor = Color.rgb(224, 224, 224)
+                bandera ++
+            } else {
+                correo.boxBackgroundColor = Color.rgb(224, 224, 224)
+                correoT = correo.editText?.text.toString()
+                bandera++
+            }
+            if (telefono.editText?.text.toString() == "") {
+                telefonoT = telefono.hint.toString()
+                telefono.boxBackgroundColor = Color.rgb(224, 224, 224)
+                bandera ++
+            } else {
+                telefono.boxBackgroundColor = Color.rgb(224, 224, 224)
+                telefonoT = telefono.editText?.text.toString()
+                bandera++
+            }
 
-            if (bandera == 3) {
-                val serie = PersonaEntity(
+
+            if (bandera == 5) {
+                val persona = PersonaEntity(
                     id_Persona = id_actual,
                     Nombre_persona = nombreT,
                     Apellido_persona = apellidoT,
-                    Edad_persona = Integer.parseInt(edadT)
+                    Edad_persona = Integer.parseInt(edadT) ,
+                    Email_persona = correoT,
+                    Telefono_persona = telefonoT
                 )
                 GlobalScope.launch(Dispatchers.IO) {
-                    SDao.update_persona(serie)
+                    SDao.update_persona(persona)
                 }
+                Toast.makeText(this,"Persona actualizada corectamente", Toast.LENGTH_SHORT).show()
                 this.finish()
             }
         }

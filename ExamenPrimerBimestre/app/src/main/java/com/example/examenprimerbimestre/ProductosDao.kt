@@ -3,12 +3,12 @@ package com.example.examenprimerbimestre
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
-@Entity(tableName = "Productos_table",
-    foreignKeys = [ForeignKey(entity = PersonaEntity::class,
+@Entity(tableName = "Productos_table")
+    /*foreignKeys = [ForeignKey(entity = PersonaEntity::class,
         parentColumns = arrayOf("id_Persona"),
         childColumns = arrayOf("id_Producto"),
         onDelete = ForeignKey.CASCADE)]
-)
+)*/
 data class ProductoEntity(
     @PrimaryKey(autoGenerate = true)
     var id_Producto: Int = 0,
@@ -30,8 +30,7 @@ data class ProductoEntity(
 
     @ColumnInfo(name = "Cantidad_producto")
     var Cantidad_producto: Int = 0
-) {
-}
+)
 
 @Dao
 interface ProductoDao {
@@ -56,4 +55,6 @@ interface ProductoDao {
 
     @Query("SELECT * FROM Productos_table WHERE id_Persona= :id ORDER BY id_Producto DESC")
     fun AllProductos(id: Int): LiveData<List<ProductoEntity>>
+
+
 }

@@ -7,99 +7,116 @@
     tools:context=".IngresarProducto">
 
     <TextView
-        android:id="@+id/txt_crearActor"
+        android:id="@+id/txt_ingresoPersona"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
-        android:text="Crear actor"
+        android:text="Ingresar Producto"
+        android:textColor="#DD190A"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tinNombre"
+        android:id="@+id/tinIdPersona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/txt_crearActor"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ingresoPersona"
         tools:layout_editor_absoluteX="201dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tintNombre"
+            android:id="@+id/tintIdPersona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="id Persona" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tinNombreProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tinIdPersona"
+        tools:layout_editor_absoluteX="201dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tintNombreProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tinApellido"
+        android:id="@+id/tinPrecio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tinNombre"
+        app:layout_constraintTop_toBottomOf="@+id/tinNombreProducto"
         tools:layout_editor_absoluteX="141dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tintApellido"
+            android:id="@+id/tintPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Apellido" />
+            android:hint="Precio" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tinFechaNacimiento"
+        android:id="@+id/tinFechaIngreso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tinApellido"
+        app:layout_constraintTop_toBottomOf="@+id/tinPrecio"
         tools:layout_editor_absoluteX="119dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tintFechaNacimiento"
+            android:id="@+id/tintFechaIngreso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="FechaNacimiento dd/mm/aaaa"
+            android:hint="Fecha de Ingreso (dd/mm/aaaa)"
             android:inputType="date" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tinGenero"
+        android:id="@+id/tinDisponibilidad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tinFechaNacimiento"
+        app:layout_constraintTop_toBottomOf="@+id/tinFechaIngreso"
         tools:layout_editor_absoluteX="123dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tintGenero"
+            android:id="@+id/tintDisponibilidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Género (M/F/O)"
+            android:hint="Disponibilidad (S/N)"
             android:inputType="text|textCapWords"
             android:maxLength="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tinEdad"
+        android:id="@+id/tinCantidad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tinGenero"
+        app:layout_constraintTop_toBottomOf="@+id/tinDisponibilidad"
         tools:layout_editor_absoluteX="187dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tintEdad"
+            android:id="@+id/tintCantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Edad"
+            android:hint="Cantidad"
             android:inputType="number"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnCreacionActor"
+        android:id="@+id/btnIngresoProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
-        android:text="Crear"
+        android:text="Ingresar"
+        app:backgroundTint="#4CAF50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tinEdad" />
+        app:layout_constraintTop_toBottomOf="@+id/tinCantidad" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

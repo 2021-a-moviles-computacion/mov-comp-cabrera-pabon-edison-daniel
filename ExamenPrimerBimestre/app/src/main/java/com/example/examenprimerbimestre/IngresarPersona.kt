@@ -1,27 +1,30 @@
 package com.example.examenprimerbimestre
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.*
 
 
 class IngresarPersona : AppCompatActivity() {
-    private lateinit var SDao: PersonaDao
+    private lateinit var PDao: PersonaDao
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingresar_persona)
 
         var db: Database.PersonasDatabase = Database.PersonasDatabase.getInstance(this)
 
-        SDao = db.personaDao
-        val button = findViewById<Button>(R.id.btnCreacionSerie)
-        val nombre = findViewById<TextInputLayout>(R.id.tinNombreSerie)
-        val apellido = findViewById<TextInputLayout>(R.id.tinClasificacion)
-        val edad = findViewById<TextInputLayout>(R.id.tinAlAire)
-        //var aireB: Boolean = false
+        PDao = db.personaDao
+        val button = findViewById<Button>(R.id.btnIngresoPersona)
+        var nombre = findViewById<TextInputLayout>(R.id.tinNombre)
+        val apellido = findViewById<TextInputLayout>(R.id.tinApellido)
+        val edad = findViewById<TextInputLayout>(R.id.tinEdad)
+        val email = findViewById<TextInputLayout>(R.id.tinCorreo)
+        val telefon = findViewById<TextInputLayout>(R.id.tinTelefono)
 
         button.setOnClickListener {
             var bandera = 0
@@ -53,66 +56,41 @@ class IngresarPersona : AppCompatActivity() {
                 bandera++
             }
 
-            /*when {
-                aire.editText?.text.toString() == "S" || aire.editText?.text.toString() == "N" -> {
-                    aireB = aire.editText?.text.toString() == "S"
-                    bandera++
-                    aire.boxBackgroundColor = Color.rgb(224, 224, 224)
-                }
-                else -> {
-                    aire.boxBackgroundColor = Color.RED
-                    aire.hint = "Sólo se permite S o N"
-                    bandera = 0
-                }
-            }*/
+            if (email.editText?.text.toString() == "") {
+                email.boxBackgroundColor = Color.RED
+                email.hint = "Ingrese el Correo de la persona"
+                bandera = 0
+            } else {
+                email.boxBackgroundColor = Color.rgb(224, 224, 224)
+                bandera++
+            }
 
-            /*when {
-                clas.editText?.text.toString() == "A" -> {
-                    clas.boxBackgroundColor = Color.rgb(224, 224, 224)
-                    bandera++
-                }
-                clas.editText?.text.toString() == "B" -> {
-                    clas.boxBackgroundColor = Color.rgb(224, 224, 224)
-                    bandera++
-                }
-                clas.editText?.text.toString() == "C" -> {
-                    clas.boxBackgroundColor = Color.rgb(224, 224, 224)
-                    bandera++
-                }
-                clas.editText?.text.toString() == "D" -> {
-                    clas.boxBackgroundColor = Color.rgb(224, 224, 224)
-                    bandera++
-                }
-                clas.editText?.text.toString() == "E" -> {
-                    clas.boxBackgroundColor = Color.rgb(224, 224, 224)
-                    bandera++
-                }
-                clas.editText?.text.toString() == "F" -> {
-                    clas.boxBackgroundColor = Color.rgb(224, 224, 224)
-                    bandera++
-                }
-                else -> {
-                    clas.boxBackgroundColor = Color.RED
-                    clas.hint = "Sólo se permiten letras de la A a la F"
-                    bandera = 0
-                }
-            }*/
-            if (bandera == 3) {
+            if (telefon.editText?.text.toString() == "") {
+                telefon.boxBackgroundColor = Color.RED
+                telefon.hint = "Ingrese el Telefono de la persona"
+                bandera = 0
+            } else {
+                telefon.boxBackgroundColor = Color.rgb(224, 224, 224)
+                bandera++
+            }
+
+
+            if (bandera == 5) {
                 val persona = PersonaEntity(
                     Nombre_persona = nombre.editText?.text.toString(),
                     Apellido_persona = apellido.editText?.text.toString(),
-                    Edad_persona = Integer.parseInt(edad.editText?.text.toString())
-                    /*Al_aire_serie = aireB,
-                    Clasificacion_serie = clas.editText?.text.toString()[0]*/
+                    Edad_persona = Integer.parseInt(edad.editText?.text.toString()),
+                    Email_persona = email.editText?.text.toString(),
+                    Telefono_persona = telefon.editText?.text.toString()
                 )
                 GlobalScope.launch(Dispatchers.IO) {
-                    SDao.insert_persona(persona)
+                    PDao.insert_persona(persona)
                 }
+                Toast.makeText(this,"Persona ingresada corectamente", Toast.LENGTH_SHORT).show()
                 this.finish()
             }
         }
 
 
     }
-
 }

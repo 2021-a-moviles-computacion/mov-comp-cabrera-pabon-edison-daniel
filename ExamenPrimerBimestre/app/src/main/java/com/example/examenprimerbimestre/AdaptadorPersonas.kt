@@ -38,17 +38,21 @@ class AdaptadorPersonas(private val context: Context,
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val rowView = inflater.inflate(R.layout.series_layout, parent, false)
+        val rowView = inflater.inflate(R.layout.personas_layout, parent, false)
 
-        val nombre = rowView.findViewById(R.id.nombre) as TextView
-        val apellido = rowView.findViewById(R.id.clas) as TextView
-        val edad = rowView.findViewById(R.id.aire) as TextView
+        val nombre = rowView.findViewById(R.id.nombrePersonas_ly) as TextView
+        val apellido = rowView.findViewById(R.id.apellidoPersonas_ly) as TextView
+        val edad = rowView.findViewById(R.id.edadPersonas_ly) as TextView
+        val email = rowView.findViewById(R.id.correoPersonas_ly) as TextView
+        val telefono = rowView.findViewById(R.id.telefonoPersonas_ly) as TextView
 
         val entidad = getItem(position) as PersonaEntity
 
         nombre.text = entidad.Nombre_persona
         apellido.text = entidad.Apellido_persona
         edad.text = entidad.Edad_persona.toString()
+        email.text = entidad.Email_persona
+        telefono.text = entidad.Telefono_persona
 
         return rowView
     }

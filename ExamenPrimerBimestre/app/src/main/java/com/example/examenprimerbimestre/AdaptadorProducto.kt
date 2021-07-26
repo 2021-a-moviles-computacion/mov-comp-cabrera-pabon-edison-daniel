@@ -34,13 +34,13 @@ class AdaptadorProducto(private val context: Context,
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val rowView = inflater.inflate(R.layout.actores_layout, parent, false)
+        val rowView = inflater.inflate(R.layout.productos_layout, parent, false)
 
-        val nombre = rowView.findViewById(R.id.nombreActores_ly) as TextView
-        val precio = rowView.findViewById(R.id.apellidoActores_ly) as TextView
+        val nombre = rowView.findViewById(R.id.nombreProductos_ly) as TextView
+        val precio = rowView.findViewById(R.id.precioProductos_ly) as TextView
         val fechaIng = rowView.findViewById(R.id.fechaNacActores_ly) as TextView
-        val disponibilidad = rowView.findViewById(R.id.generoActores_ly) as TextView
-        val cantidad = rowView.findViewById(R.id.edadActores_ly) as TextView
+        val disponibilidad = rowView.findViewById(R.id.disponibilidadProductos_ly) as TextView
+        val cantidad = rowView.findViewById(R.id.cantidadProductos_ly) as TextView
 
         val entidad = getItem(position) as ProductoEntity
 

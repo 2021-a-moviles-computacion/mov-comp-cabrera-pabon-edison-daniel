@@ -1,7 +1,6 @@
 package com.example.examenprimerbimestre
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.ContextMenu
@@ -10,22 +9,29 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Button
 import android.widget.ListView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.example.examenpokentrpp1.activEntren.AdaptadorPersonas
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import com.example.examenprimerbimestre.MainActivity as MainActivity1
 
 class Productos : AppCompatActivity() {
     var idItemSeleccionado = 0
     lateinit var adaptador : AdaptadorProducto
+    lateinit var adaptador1 : AdaptadorPersonas
     var id_Persona = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reparto)
-        id_Persona = intent.getIntExtra("id_actual",0)
+        setContentView(R.layout.activity_productos)
+        adaptador1 = AdaptadorPersonas(this)
+        var position = intent.getIntExtra("id_actual", 0)
+        id_Persona = adaptador1.getItemId(position).toInt()
 
         var db:Database.PersonasDatabase  = Database.PersonasDatabase.getInstance(this)
-        val list = findViewById<ListView>(R.id.lst_actores)
+        val list = findViewById<ListView>(R.id.lst_productos)
         adaptador = AdaptadorProducto(this)
         list.adapter = adaptador
         var ADao = db.productoDao
@@ -38,11 +44,12 @@ class Productos : AppCompatActivity() {
         });
 
         registerForContextMenu((list))
-        val btnCrearActor = findViewById<Button>(R.id.btnCrearActor)
+        val btnIngresarProducto = findViewById<Button>(R.id.btnIngresarProducto)
 
-        btnCrearActor.setOnClickListener {
+        btnIngresarProducto.setOnClickListener {
             irActividad(IngresarProducto::class.java,arrayListOf(Pair("id_persona",id_Persona)))
         }
+
     }
 
     override fun onCreateContextMenu(
@@ -63,7 +70,7 @@ class Productos : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         val db:Database.PersonasDatabase  = Database.PersonasDatabase.getInstance(this)
         val ADao = db.productoDao
-        val list = findViewById<ListView>(R.id.lst_actores)
+        val list = findViewById<ListView>(R.id.lst_productos)
 
         return when (item?.itemId){
             R.id.mi_editar -> {
@@ -76,6 +83,7 @@ class Productos : AppCompatActivity() {
                 GlobalScope.launch (Dispatchers.IO) {
                     ADao.delete_producto(actual.Nombre_producto)
                 }
+                Toast.makeText(this,"Producto eliminado corectamente", Toast.LENGTH_SHORT).show()
                 return true
             }
             else -> super.onContextItemSelected(item)

@@ -1,9 +1,12 @@
 package com.example.examenprimerbimestre
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
+import com.example.examenpokentrpp1.activEntren.AdaptadorPersonas
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -11,26 +14,32 @@ import kotlinx.coroutines.launch
 
 class IngresarProducto : AppCompatActivity() {
     private lateinit var ADao: ProductoDao
-    var id_persona = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingresar_producto)
-        id_persona = intent.getIntExtra("id_persona",0)
-
         var db: Database.PersonasDatabase = Database.PersonasDatabase.getInstance(this)
 
         ADao = db.productoDao
-        val button = findViewById<Button>(R.id.btnCreacionActor)
-
-        val nombre = findViewById<TextInputLayout>(R.id.tinNombre)
-        val precio = findViewById<TextInputLayout>(R.id.tinApellido)
-        val fechaIng = findViewById<TextInputLayout>(R.id.tinFechaNacimiento)
-        val disponibilidad = findViewById<TextInputLayout>(R.id.tinGenero)
-        val cantidad = findViewById<TextInputLayout>(R.id.tinEdad)
+        val button = findViewById<Button>(R.id.btnIngresoProducto)
+        var id_per = findViewById<TextInputLayout>(R.id.tinIdPersona)
+        val nombre = findViewById<TextInputLayout>(R.id.tinNombreProducto)
+        val precio = findViewById<TextInputLayout>(R.id.tinPrecio)
+        val fechaIng = findViewById<TextInputLayout>(R.id.tinFechaIngreso)
+        val disponibilidad = findViewById<TextInputLayout>(R.id.tinDisponibilidad)
+        val cantidad = findViewById<TextInputLayout>(R.id.tinCantidad)
         var disp: Boolean = false
 
         button.setOnClickListener {
             var bandera = 0
+
+            if (id_per.editText?.text.toString() == "") {
+                id_per.boxBackgroundColor = Color.RED
+                id_per.hint = "Ingrese de la persona"
+                bandera = 0
+            } else {
+                id_per.boxBackgroundColor = Color.rgb(224, 224, 224)
+                bandera++
+            }
 
             if (nombre.editText?.text.toString() == "") {
                 nombre.boxBackgroundColor = Color.RED
@@ -88,9 +97,9 @@ class IngresarProducto : AppCompatActivity() {
                 cantidad.boxBackgroundColor = Color.rgb(224, 224, 224)
                 bandera++
             }
-            if (bandera == 5) {
-                val actor = ProductoEntity(
-                    id_Persona = id_persona,
+            if (bandera == 6) {
+                val producto = ProductoEntity(
+                    id_Persona = id_per.editText?.text.toString().toInt(),
                     Nombre_producto = nombre.editText?.text.toString(),
                     Precio_producto = precio.editText?.text.toString().toDouble(),
                     Fecha_ingreso_producto = fechaIng.editText?.text.toString(),
@@ -98,12 +107,13 @@ class IngresarProducto : AppCompatActivity() {
                     Cantidad_producto = Integer.parseInt(cantidad.editText?.text.toString())
                 )
                 GlobalScope.launch(Dispatchers.IO) {
-                    ADao.insert_producto(actor)
+                    ADao.insert_producto(producto)
                 }
+                Toast.makeText(this,"Producto ingresado corectamente", Toast.LENGTH_SHORT).show()
                 this.finish()
             }
         }
 
-
     }
+
 }

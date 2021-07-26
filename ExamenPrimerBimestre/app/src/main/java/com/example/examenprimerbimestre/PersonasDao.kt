@@ -35,11 +35,11 @@ interface PersonaDao {
     @Update
     fun update_persona(persona: PersonaEntity)
 
+    @Query("SELECT * from Personas_table WHERE id_Persona = :nombre")
+    fun get_nombre_persona(nombre: String): LiveData<PersonaEntity>?
+
     @Query("SELECT * from Personas_table WHERE id_Persona = :key")
     fun get_id_persona(key: Int): LiveData<PersonaEntity>?
-
-    @Query("SELECT * from Personas_table WHERE Nombre_persona = :nombre AND Apellido_persona = :apellido")
-    fun get_nombre_persona(nombre: String, apellido: String): LiveData<PersonaEntity>?
 
     @Query("DELETE FROM Personas_table WHERE Nombre_persona = :nombre AND Apellido_persona = :apellido")
     fun delete_persona(nombre: String, apellido: String)
@@ -50,3 +50,4 @@ interface PersonaDao {
     @Query("SELECT * FROM Personas_table ORDER BY id_Persona DESC")
     fun AllPersonas(): LiveData<List<PersonaEntity>>
 }
+

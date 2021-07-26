@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/nombre"
+            android:id="@+id/nombreProductos_ly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre" />
@@ -23,10 +23,10 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/clas"
+            android:id="@+id/precioProductos_ly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clasificación" />
+            android:text="Precio" />
 
         <Space
             android:layout_width="wrap_content"
@@ -34,10 +34,32 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/aire"
+            android:id="@+id/fechaNacActores_ly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Al aire" />
+            android:text="Fecha de Ingreso" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/disponibilidadProductos_ly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disponibilidad" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/cantidadProductos_ly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/nombreActores_ly"
+            android:id="@+id/nombrePersonas_ly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre" />
@@ -23,7 +23,7 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/apellidoActores_ly"
+            android:id="@+id/apellidoPersonas_ly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Apellido" />
@@ -34,32 +34,32 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/fechaNacActores_ly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fecha de nacimiento" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/generoActores_ly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Género" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/edadActores_ly"
+            android:id="@+id/edadPersonas_ly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edad" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/correoPersonas_ly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo Electrónico" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/telefonoPersonas_ly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teléfono" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
