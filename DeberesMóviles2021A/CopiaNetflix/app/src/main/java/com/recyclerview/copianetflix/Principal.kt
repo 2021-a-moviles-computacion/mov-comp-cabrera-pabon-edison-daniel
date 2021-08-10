@@ -41,7 +41,7 @@ class Principal : AppCompatActivity() {
             val trendingTitle = seriesTitles + moviesTitles
 
             size = series.size
-            resource = R.layout.start_carousel_trending_item
+            resource = R.layout.start_carousel_series_item
             scaleOnScroll = true
             spacing = 50
             hideIndicator(true)

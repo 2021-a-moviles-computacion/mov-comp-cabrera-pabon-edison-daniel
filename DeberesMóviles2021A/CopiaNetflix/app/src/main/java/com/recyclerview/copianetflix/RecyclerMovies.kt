@@ -12,7 +12,7 @@ class RecyclerMovies : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.movies)
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView2)
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView1)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val MoviesElements: Array<Movies> = arrayOf(
