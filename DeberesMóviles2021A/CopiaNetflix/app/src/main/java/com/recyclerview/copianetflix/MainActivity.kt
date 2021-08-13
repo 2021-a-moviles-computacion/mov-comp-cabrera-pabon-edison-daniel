@@ -1,10 +1,9 @@
-package com.recyclerview.carouselviewexample
+package com.recyclerview.copianetflix
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import android.os.Parcelable
 import android.widget.Button
-import com.jama.carouselviewexample.R
 
 
 class MainActivity : AppCompatActivity() {

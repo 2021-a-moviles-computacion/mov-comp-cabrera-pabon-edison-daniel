@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.recyclerview.carouselviewexample.VistaMovie">
+    android:background="@drawable/black"
+    tools:context=".VistaSerie">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:background="#009688"
         android:fontFamily="serif"
         android:lineSpacingExtra="8sp"
-        android:text="With the improvments of tablets and digital magazines are becoming visually enticing and readable magazines with its graphic arts"
+        android:text="Categoría: Terror"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -26,8 +28,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:background="#009688"
         android:fontFamily="serif"
-        android:text="Magazines"
+        android:text="Fear The Walking Dead"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -37,18 +40,19 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="363dp"
+        android:layout_height="272dp"
         android:layout_marginTop="24dp"
+        android:background="#009688"
         android:fontFamily="serif"
         android:lineSpacingExtra="8sp"
-        android:text="At the same time digitizing  platforms are broadening  the scope of where digial magazines can be published, such as within websites and on, smartphones"
+        android:text="Fear The Walking Dead',spin-off de 'The Walking Dead', es una serie dramática que explora el inicio del apocalipsis desde el punto de vista de una familia desestructurada: Sean Cabrera, profesor divorciado consejero de orientación femenina, y sus dos hijos. Donde  nace un brote de algo misterioso..."
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutSeries" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -65,7 +69,7 @@
         app:layout_constraintGuide_begin="385dp" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutSeries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -80,5 +84,6 @@
             android:layout_height="wrap_content"
             app:spacing="20" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

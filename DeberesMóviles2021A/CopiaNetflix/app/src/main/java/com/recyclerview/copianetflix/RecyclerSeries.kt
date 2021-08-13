@@ -1,12 +1,14 @@
-package com.recyclerview.carouselviewexample
+package com.recyclerview.copianetflix
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.os.Bundle
-import com.jama.carouselviewexample.R
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 
-class RecyclerSeries : AppCompatActivity() {
+class RecyclerSeries : AppCompatActivity(), AdapterSeries.SeriesListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.series)
@@ -25,8 +27,15 @@ class RecyclerSeries : AppCompatActivity() {
             Series("The Walking Dead", "2012 film", R.drawable.the_walking_dead_2012),
             Series("Vickingos", "2013 film", R.drawable.vickingos_2013),
         )
-        val mySerieAdapter = AdapterSeries()
-        mySerieAdapter.AdapterSeries(SeriesElements)
+        val mySerieAdapter = AdapterSeries(SeriesElements,this)
         recyclerView.adapter = mySerieAdapter
+    }
+
+    override fun onItemClick(series: String) {
+        Toast.makeText(baseContext, series, Toast.LENGTH_SHORT)
+            .show()
+        Snackbar.make(findViewById(android.R.id.content), series, Snackbar.LENGTH_LONG).show()
+        val intent = Intent(baseContext, VistaSerie::class.java)
+        startActivity(intent)
     }
 }

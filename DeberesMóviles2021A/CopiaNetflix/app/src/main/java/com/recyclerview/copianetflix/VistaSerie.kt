@@ -7,14 +7,14 @@ import com.jama.copianetflix.enums.IndicatorAnimationType
 import com.jama.copianetflix.enums.OffsetType
 import kotlinx.android.synthetic.main.activity_movies_carousel.*
 
-
-class VistaMovie : AppCompatActivity() {
+class VistaSerie : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movies_carousel)
+        setContentView(R.layout.activity_series_carousel)
 
-        val images = arrayListOf(R.drawable.venom, R.drawable.venom2, R.drawable.venom)
+        val images = arrayListOf(R.drawable.fear_walking_dead_2015,R.drawable.the_walking_dead_2012, R.drawable.fear_walking_dead_2015)
+
         carouselView.apply {
             size = images.size
             autoPlay = true
@@ -28,5 +28,7 @@ class VistaMovie : AppCompatActivity() {
             }
             show()
         }
+
     }
 }
+

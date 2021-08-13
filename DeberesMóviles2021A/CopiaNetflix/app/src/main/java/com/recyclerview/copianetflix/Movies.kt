@@ -1,4 +1,4 @@
-package com.recyclerview.carouselviewexample
+package com.recyclerview.copianetflix
 
 import android.os.Parcel
 import android.os.Parcelable

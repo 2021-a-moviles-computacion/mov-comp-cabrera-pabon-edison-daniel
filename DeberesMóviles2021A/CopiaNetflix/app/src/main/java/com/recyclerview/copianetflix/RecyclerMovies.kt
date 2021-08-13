@@ -1,14 +1,14 @@
-package com.recyclerview.carouselviewexample
+package com.recyclerview.copianetflix
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.os.Bundle
-import android.os.Parcelable
-import com.jama.carouselviewexample.R
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 
-class RecyclerMovies : AppCompatActivity() {
+class RecyclerMovies : AppCompatActivity(), AdapterMovies.MoviesListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.movies)
@@ -27,51 +27,19 @@ class RecyclerMovies : AppCompatActivity() {
             Movies("Joker", "2019 film", R.drawable.joker_2019),
             Movies("SuperCool", "2007 film", R.drawable.superbad_2007)
         )
-        val myMovieAdapter = AdapterMovies()
-        myMovieAdapter.AdapterMovies(MoviesElements)
+
+        val myMovieAdapter = AdapterMovies(MoviesElements,this)
         recyclerView.adapter = myMovieAdapter
     }
 
-    fun irActividad(
-        clase: Class<*>,
-        parametros: ArrayList<Pair<String, *>>? = null,
-        codigo: Int? = null
-    ) {
-        val intentExplicito = Intent(
-            this,
-            clase
-        )
-        parametros?.forEach {
-            val nombreVariable = it.first
-            val valorVariable: Any? = it.second
+    override fun onItemClick(movies: String) {
 
-            when (it.second) {
-                is String -> {
-                    valorVariable as String
-                    intentExplicito.putExtra(nombreVariable, valorVariable)
-                }
-                is Parcelable -> {
-                    valorVariable as Parcelable
-                    intentExplicito.putExtra(nombreVariable, valorVariable)
-                }
-                is Int -> {
-                    valorVariable as Int
-                    intentExplicito.putExtra(nombreVariable, valorVariable)
-                }
-                else -> {
-                    valorVariable as String
-                    intentExplicito.putExtra(nombreVariable, valorVariable)
-                }
-            }
+        Toast.makeText(baseContext, movies, Toast.LENGTH_SHORT)
+            .show()
 
+        Snackbar.make(findViewById(android.R.id.content), movies, Snackbar.LENGTH_LONG).show()
 
-        }
-
-        if (codigo != null) {
-            startActivityForResult(intentExplicito, codigo)
-        } else {
-            startActivity(intentExplicito)
-
-        }
+        val intent = Intent(baseContext, VistaMovie::class.java)
+        startActivity(intent)
     }
 }

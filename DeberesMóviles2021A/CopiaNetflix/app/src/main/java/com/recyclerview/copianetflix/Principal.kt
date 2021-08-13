@@ -1,4 +1,4 @@
-package com.recyclerview.carouselviewexample
+package com.recyclerview.copianetflix
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.widget.ImageView
 import android.widget.TextView
-import com.jama.carouselviewexample.R
 import kotlinx.android.synthetic.main.activity_start_carousel.*
 
 class Principal : AppCompatActivity() {
