@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "99807212517",
+    "project_id": "moviles-2021-a-edison-cabrera",
+    "storage_bucket": "moviles-2021-a-edison-cabrera.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99807212517:android:00ca28d2fbc9edd292350c",
+        "android_client_info": {
+          "package_name": "com.example.firebase1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99807212517-kakr1j64s49tg9quoghpfhhitofa9hvi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW0fvthZ0jkIYtfv6noIDvJ2IqYT0PzeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99807212517-kakr1j64s49tg9quoghpfhhitofa9hvi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99807212517:android:ffb1c808a7e6e9be92350c",
+        "android_client_info": {
+          "package_name": "com.example.firebase2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99807212517-kakr1j64s49tg9quoghpfhhitofa9hvi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW0fvthZ0jkIYtfv6noIDvJ2IqYT0PzeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99807212517-kakr1j64s49tg9quoghpfhhitofa9hvi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
