@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Firebase1">
         <activity
+            android:name=".EOrdenes"
+            android:exported="true" />
+        <activity
+            android:name=".DRestaurante"
+            android:exported="true" />
+        <activity
             android:name=".CProducto"
             android:exported="true" />
         <activity
