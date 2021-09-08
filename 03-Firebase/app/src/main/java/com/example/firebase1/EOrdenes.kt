@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.*
+import com.example.firebase1.dto.FirestoreOrdenesDto
 import com.example.firebase1.dto.FirestoreProductoDto
 import com.example.firebase1.dto.FirestoreRestauranteDto
 import com.google.firebase.firestore.ktx.firestore
@@ -19,7 +18,9 @@ class EOrdenes : AppCompatActivity() {
 
     var arregloProductos = arrayListOf<FirestoreProductoDto>()
     var adaptadorProductos: ArrayAdapter<FirestoreProductoDto>? = null
-    var productoSeleccionado: FirestoreProductoDto? = null
+    var productoSeleccionado= FirestoreProductoDto()
+
+    var arregloOrdenes = ArrayList<FirestoreOrdenesDto>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +44,36 @@ class EOrdenes : AppCompatActivity() {
             adaptadorProductos?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             cargarProductos()
         }
+
+        val textViewEcabezado = findViewById<TextView>(R.id.tv_encabezado_text_view)
+        textViewEcabezado.text = "PRODUCTO \t VALOR UNIT. \t CANT. \t VALOR"
+
+
+        val editTextCantidadProductos = findViewById<EditText>(R.id.et_cantidad_producto)
+        val botonAdd = findViewById<Button>(R.id.btn_addTipoComida)
+
+        val listViewProductos = findViewById<ListView>(R.id.lv_lista_productos)
+        val adaptadorListaProductos = ArrayAdapter(this, android.R.layout.simple_selectable_list_item , arregloOrdenes)
+        listViewProductos.adapter = adaptadorListaProductos
+
+
+        botonAdd.setOnClickListener {
+            var editTextCantidadProductosValorCorregido:String = editTextCantidadProductos.text.toString()
+            if(editTextCantidadProductosValorCorregido == ""){
+                editTextCantidadProductosValorCorregido = "1"
+            }
+            val orden = FirestoreOrdenesDto(productoSeleccionado.nombre,productoSeleccionado.precio!!,editTextCantidadProductosValorCorregido.toInt())
+            añadirItemsAlListView(orden,adaptadorListaProductos)
+            editTextCantidadProductos.text.clear()
+        }
+
+        val botonCompletarPedido = findViewById<Button>(R.id.btn_completar_pedido)
+        botonCompletarPedido
+            .setOnClickListener {
+                val textViewTotalAPagar = findViewById<TextView>(R.id.tv_total_a_pagar)
+                adaptadorListaProductos.clear()
+                textViewTotalAPagar.text="0"
+            }
     }
 
 
@@ -72,7 +103,7 @@ class EOrdenes : AppCompatActivity() {
         referencia
             .addOnSuccessListener{
                 for (document in it) {
-                    //Log.i("firebase-firestore", "${document.id} => ${document.data}")
+                    Log.i("firebase-firestore", "${document.id} => ${document.data}")
                     var restaurante = document.toObject(FirestoreRestauranteDto::class.java)
                     restaurante.uid = document.id
                     arregloRestaurantes.add(restaurante)
@@ -122,5 +153,13 @@ class EOrdenes : AppCompatActivity() {
 
             }
     }
+
+    fun añadirItemsAlListView(objeto:FirestoreOrdenesDto, adaptador: ArrayAdapter<FirestoreOrdenesDto>){
+        arregloOrdenes.add(objeto)
+        adaptador.notifyDataSetChanged()
+        val textViewTotalAPagar = findViewById<TextView>(R.id.tv_total_a_pagar)
+        textViewTotalAPagar.text = (textViewTotalAPagar.text.toString().toDouble() + objeto.calcularTotal()).toString()
+    }
+
 
 }

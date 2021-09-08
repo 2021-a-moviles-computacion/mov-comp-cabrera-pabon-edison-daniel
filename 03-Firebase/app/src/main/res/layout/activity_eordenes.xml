@@ -14,7 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Spinner
         android:id="@+id/spn_productos"
@@ -24,7 +25,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ListView
         android:id="@+id/lv_lista_productos"
@@ -75,6 +77,7 @@
         android:ems="10"
         android:hint="Ingrese la Cantidad"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,5 +93,38 @@
         app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_cantidad_producto" />
+
+    <TextView
+        android:id="@+id/tv_encabezado_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="PRODUCTO VALOR UNIT. CANT. VALOR"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toTopOf="@+id/lv_lista_productos"
+        app:layout_constraintEnd_toEndOf="@+id/lv_lista_productos"
+        app:layout_constraintStart_toStartOf="@+id/lv_lista_productos" />
+
+    <TextView
+        android:id="@+id/tv_total_a_pagar"
+        android:layout_width="54dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="8dp"
+        android:editable="false"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/lv_lista_productos"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="@+id/lv_lista_productos"
+        app:layout_constraintTop_toBottomOf="@+id/lv_lista_productos" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="Total a Pagar:  $"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_total_a_pagar"
+        app:layout_constraintEnd_toStartOf="@+id/tv_total_a_pagar"
+        app:layout_constraintTop_toTopOf="@+id/tv_total_a_pagar"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
