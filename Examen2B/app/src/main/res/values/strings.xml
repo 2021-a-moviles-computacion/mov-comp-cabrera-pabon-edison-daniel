@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Examen2B</string>
+    <string name="cms_inicio_texto">CMS Company Managment Systems</string>
+    <string name="personas_titulo">PERSONAS </string>
+    <string name="texto_boton_nuevo"> NUEVO / CREAR  </string>
+    <string name="producto_titulo"> PRODUCTOS  </string>
+    <string name="persona_nombre"> Nombre </string>
+    <string name="persona_apellido"> Apellido  </string>
+    <string name="persona_edad"> Edad  </string>
+    <string name="persona_email"> Correo Electrónico  </string>
+    <string name="persona_telefono"> Teléfono  </string>
+    <string name="cantidad_productos"> 0  </string>
+    <string name="producto_nombre">Nombre Producto  </string>
+    <string name="producto_persona"> Nombre Persona </string>
+    <string name="product_fecha_ing"> Fecha de Ingreso(dd/mm/aaaa)</string>
+    <string name="cantidad_producto"> Cantidad </string>
+</resources>

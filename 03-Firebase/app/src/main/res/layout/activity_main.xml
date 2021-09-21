@@ -81,4 +81,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_restaurante"
         tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/btn_ir_mapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Mapa"
+        app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ordenes"
+        app:layout_constraintVertical_bias="0.156" />
 </androidx.constraintlayout.widget.ConstraintLayout>
