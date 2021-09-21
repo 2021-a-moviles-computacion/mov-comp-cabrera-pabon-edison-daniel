@@ -17,10 +17,10 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class Persona : AppCompatActivity() {
-    var empresaSeleccioanda: FirebasePersonaDTO? = null
+    var personaSeleccioanda: FirebasePersonaDTO? = null
     val CODIGO_RESPUESTA_INTENT_EXPLICITO = 400
     var adapter: ArrayAdapter<FirebasePersonaDTO>? = null
-    var arregloEmpresas = arrayListOf<FirebasePersonaDTO>()
+    var arregloPersonas = arrayListOf<FirebasePersonaDTO>()
     var  posiconElementoSeleccionado: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class Persona : AppCompatActivity() {
         adapter = ArrayAdapter(
             this,
             android.R.layout.simple_list_item_1,
-            arregloEmpresas
+            arregloPersonas
         )
 
         val listPersonas = findViewById<ListView>(R.id.list_view_personas)
@@ -43,18 +43,18 @@ class Persona : AppCompatActivity() {
                 position: Int,
                 id: Long)
             {
-                empresaSeleccioanda = arregloEmpresas[position]
+                personaSeleccioanda = arregloPersonas[position]
             }
 
             override fun onNothingSelected(
                 p0: AdapterView<*>?)
             {
-                Log.i("firestore-empresa", "No ha seleccionado ningun item")
+                Log.i("firestore-persona", "No ha seleccionado ningun item")
             }
         }
 
-        val btnCrearEmpresa = findViewById<Button>(R.id.btn_crear)
-        btnCrearEmpresa.setOnClickListener {
+        val btnCrearPersona = findViewById<Button>(R.id.btn_crear)
+        btnCrearPersona.setOnClickListener {
             abrirActiviad(CrearPersona::class.java)
         }
 
@@ -77,7 +77,7 @@ class Persona : AppCompatActivity() {
                     persona!!.email = document.get("Correo Electrónico").toString()
                     persona!!.telefono = document.get("Teléfono").toString()
 
-                    arregloEmpresas.add(persona)
+                    arregloPersonas.add(persona)
                     adapter?.notifyDataSetChanged()
                 }
             }
@@ -117,7 +117,7 @@ class Persona : AppCompatActivity() {
 
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        var idElemento = arregloEmpresas[posiconElementoSeleccionado]
+        var idElemento = arregloPersonas[posiconElementoSeleccionado]
         return when(item?.itemId){
             R.id.men_editar -> {
                 abrirActividadporId(EditarPersona::class.java, idElemento)

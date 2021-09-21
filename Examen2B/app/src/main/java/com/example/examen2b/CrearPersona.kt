@@ -41,7 +41,7 @@ class CrearPersona : AppCompatActivity() {
         val emailIngreso = email.text.toString()
         val telefonoIngreso = telefono.text.toString()
 
-        val nuevoEmpresa = hashMapOf<String, Any>(
+        val nuevaPersona = hashMapOf<String, Any>(
             "Nombre" to nombreIngreso,
             "Apellido" to apellidoIngreso,
             "Edad" to edadIngreso,
@@ -52,7 +52,7 @@ class CrearPersona : AppCompatActivity() {
         val referencia = db.collection("personas")
 
         referencia
-            .add(nuevoEmpresa)
+            .add(nuevaPersona)
             .addOnSuccessListener {
                 nombre.text = ""
                 apellido.text = ""

@@ -40,9 +40,9 @@ class Producto : AppCompatActivity() {
 
         )
 
-        val listViewEmpleados = findViewById<ListView>(R.id.list_view_personas)
-        listViewEmpleados.adapter = adpatador
-        listViewEmpleados.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        val listViewProductos = findViewById<ListView>(R.id.list_view_productos)
+        listViewProductos.adapter = adpatador
+        listViewProductos.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -60,10 +60,10 @@ class Producto : AppCompatActivity() {
         }
 
 
-        registerForContextMenu(listViewEmpleados)
+        registerForContextMenu(listViewProductos)
 
-        val btNuevoEmpleado = findViewById<Button>(R.id.btn_producto_nuevo)
-        btNuevoEmpleado.setOnClickListener {
+        val btnnuevoProducto = findViewById<Button>(R.id.btn_producto_nuevo)
+        btnnuevoProducto.setOnClickListener {
             abrirActiviad(CrearProducto::class.java, persona!!)
         }
 
@@ -95,7 +95,7 @@ class Producto : AppCompatActivity() {
             // Editar
             R.id.editar_producto -> {
                 Log.i("list-view", "Editar ${selproducto} ")
-                abrirActiviadEmpleado(EditarProducto::class.java, selproducto)
+                abrirActividadProductos(EditarProducto::class.java, selproducto)
                 return true
             }
             //Eliinar
@@ -113,14 +113,14 @@ class Producto : AppCompatActivity() {
                 return true
             }
             R.id.ver_mapa -> {
-                abrirActiviadEmpleado(Geo::class.java, selproducto)
+                abrirActividadProductos(Geo::class.java, selproducto)
                 return true
             }
             else -> super.onContextItemSelected(item)
         }
     }
 
-    fun abrirActiviadEmpleado(
+    fun abrirActividadProductos(
         clase: Class<*>,
         producto: FirebaseProductoDTO
     ){
@@ -144,15 +144,6 @@ class Producto : AppCompatActivity() {
         startActivityForResult(intentExplicito, CODIGO_RESPUESTA_INTENT_EXPLICITO)
     }
 
-    fun abrirActiviadSola(
-        clase: Class<*>
-    ){
-        val intentExplicito = Intent(
-            this,
-            clase
-        )
-        startActivity(intentExplicito)
-    }
 
     fun cargarProducto(idPersona: String){
         val db = Firebase.firestore

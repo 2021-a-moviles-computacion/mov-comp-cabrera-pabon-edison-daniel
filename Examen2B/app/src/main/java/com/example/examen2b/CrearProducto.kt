@@ -29,7 +29,7 @@ class CrearProducto : AppCompatActivity() {
         val bt_ingresar_producto = findViewById<Button>(R.id.btn_guardarp)
 
         bt_ingresar_producto.setOnClickListener {
-            crearEmpleado()
+            crearProducto()
             abrirActividad(Persona::class.java)
         }
 
@@ -39,7 +39,7 @@ class CrearProducto : AppCompatActivity() {
         }
     }
 
-    fun crearEmpleado(){
+    fun crearProducto(){
         val nombre_producto = findViewById<TextView>(R.id.txt_nombre_producto)
         val precio = findViewById<TextView>(R.id.txt_precio)
         val disp = findViewById<TextView>(R.id.txt_disponibilidad)

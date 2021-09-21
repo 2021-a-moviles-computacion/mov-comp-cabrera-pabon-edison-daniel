@@ -18,31 +18,27 @@ class Geo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_geo)
-        val empleado = intent.getParcelableExtra<FirebaseProductoDTO>("producto")
+        val producto = intent.getParcelableExtra<FirebaseProductoDTO>("producto")
 
 
 
-        Log.i("RECIBIENDO EL EMPLEADO", "lATITUD ${empleado!!.longitud}")
-        Log.i("RECIBIENDO EL EMPLEADO", "lONGITUD ${empleado!!.latitud}")
+        Log.i("RECIBIENDO EL PRODUCTO", "lATITUD ${producto!!.longitud}")
+        Log.i("RECIBIENDO EL PRODUCTO", "lONGITUD ${producto!!.latitud}")
 
-        var latitud = empleado!!.latitud.toString().toDouble()
-        var longitUd = empleado!!.longitud.toString().toDouble()
+        var latitud = producto!!.latitud.toString().toDouble()
+        var longitUd = producto!!.longitud.toString().toDouble()
 
-
-        //Log.i("TREAR UBICACION", "LATITUD ${latitud}")
-        //Log.i("TREAR UBICACION", "LONGITUD ${longitid}")
 
         val fragmentoMapa = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
 
         fragmentoMapa.getMapAsync { googleMap ->
             if(googleMap != null){
-                //val quicentro = LatLng(-0.176125, -78.480208)
-                val quicentro = LatLng(latitud, longitUd)
+                val ubicacion = LatLng(latitud, longitUd)
                 mapa = googleMap
                 establecerConfiguracionMapa()
-                anadirMarcador(quicentro, "UBICACION")
-                moverCamara(quicentro, 17f)
+                anadirMarcador(ubicacion, "UBICACION")
+                moverCamara(ubicacion, 17f)
             }
         }
     }

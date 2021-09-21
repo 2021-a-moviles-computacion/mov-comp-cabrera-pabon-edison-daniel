@@ -3,6 +3,7 @@ package com.example.examen2b
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
@@ -10,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val ir_aplicacion = findViewById<ImageView>(R.id.img_inicio)
+        val ir_aplicacion = findViewById<Button>(R.id.btn_empezar_examen)
 
         ir_aplicacion.setOnClickListener {
             irAṕlicacion()

@@ -4,30 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/shop"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/img_inicio"
-        android:layout_width="332dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="272dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shop" />
 
     <TextView
         android:id="@+id/txt_inicio"
         android:layout_width="331dp"
         android:layout_height="77dp"
         android:layout_marginTop="20dp"
-        android:text="Supermercado Robert"
+        android:text="Examen 2B App Móviles"
         android:textAlignment="center"
         android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="@+id/img_view_cms"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/img_view_cms"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_view_cms" />
+
+    <Button
+        android:id="@+id/btn_empezar_examen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:text="Empezar Examen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_inicio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
