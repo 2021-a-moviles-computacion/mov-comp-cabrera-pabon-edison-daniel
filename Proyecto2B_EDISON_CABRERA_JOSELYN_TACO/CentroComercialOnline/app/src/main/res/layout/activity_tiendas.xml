@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Tiendas">
+    <include layout="@layout/activity_barranavegacion"/>
+
+    <TextView
+        android:id="@+id/txv_titulo_tienda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiendas"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:text="Categorias: Actualidad"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_tienda1"
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        android:scaleType="fitXY"
+        android:tint="#6B01579B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.242"
+        app:srcCompat="@drawable/elect" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="237dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="172dp"
+        android:text="ELECTRODOMESTICOS: \nTODO PARA TU HOGAR \nLOS MEJORES PRECIOS"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_tienda1" />
+
+    <ImageView
+        android:id="@+id/img_tienda2"
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        android:scaleType="fitXY"
+        android:tint="#6B01579B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.874"
+        app:srcCompat="@drawable/ropa1" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="237dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="172dp"
+        android:text="ROPA: \nTODOS LOS MODELOS \nLOS MEJORES PRECIOS"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_tienda2" />
+
+    <TextView
+        android:id="@+id/tv_tienda_elect"
+        android:layout_width="104dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="44dp"
+        android:text="Tienda"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_tienda_ropa"
+        android:layout_width="104dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="88dp"
+        android:text="Tienda"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.058" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

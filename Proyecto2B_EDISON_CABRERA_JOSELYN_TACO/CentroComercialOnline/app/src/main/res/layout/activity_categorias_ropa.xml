@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CategoriasElect">
+
+    <include
+        layout="@layout/activity_barranavegacion" />
+
+    <ScrollView
+        android:layout_width="406dp"
+        android:layout_height="628dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txv_titulo_tienda"
+                    android:layout_width="194dp"
+                    android:layout_height="wrap_content"
+                    android:text="LA GANGA"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Lo más nuevo y novedoso: Hoy"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_categoria1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="30dp"
+                        android:text="TextView"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40dp"
+                        android:text="Mas" />
+                </RelativeLayout>
+
+                <com.jama.carouselview.CarouselView
+                    android:id="@+id/carouselViewGanga1"
+                    android:layout_width="358dp"
+                    android:layout_height="185dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    app:spacing="20">
+
+
+                </com.jama.carouselview.CarouselView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_categoria2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:text="TextView"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40dp"
+                        android:text="Mas" />
+                </RelativeLayout>
+
+                <com.jama.carouselview.CarouselView
+                    android:id="@+id/carouselViewGanga2"
+                    android:layout_width="358dp"
+                    android:layout_height="185dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    app:spacing="20" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_categoria3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginLeft="27dp"
+                        android:text="TextView"
+                        android:textStyle="bold|italic"/>
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40dp"
+                        android:text="Mas" />
+                </RelativeLayout>
+
+                <com.jama.carouselview.CarouselView
+                    android:id="@+id/carouselViewGanga3"
+                    android:layout_width="358dp"
+                    android:layout_height="185dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    app:spacing="20">
+
+                </com.jama.carouselview.CarouselView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_categoria4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginLeft="32dp"
+                        android:text="TextView"
+                        android:textStyle="bold|italic"/>
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40dp"
+                        android:text="Mas" />
+                </RelativeLayout>
+
+                <com.jama.carouselview.CarouselView
+                    android:id="@+id/carouselViewGanga4"
+                    android:layout_width="358dp"
+                    android:layout_height="185dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    app:spacing="20">
+
+                </com.jama.carouselview.CarouselView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

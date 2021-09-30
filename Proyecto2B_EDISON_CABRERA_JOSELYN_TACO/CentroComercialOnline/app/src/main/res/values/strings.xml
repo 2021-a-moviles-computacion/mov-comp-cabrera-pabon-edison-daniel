@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CentroComercialOnline</string>
+    <string name="jd_market">JD-Market</string>
+    <string name="tus_compras">Tus Compras  en línea en\n las mejores manos</string>
+    <string name="sign_up">Registrarse</string>
+    <string name="sign_in">Iniciar Sesión</string>
+    <string name="title_activity_registrarse">Registrarse</string>
+    <string name="para_empeza">Para empezar a usar JD-Market!</string>
+    <string name="registrese">Registrese con su red social preferida o complete el formulario para continuar.</string>
+    <string name="iniciosesion">Inicie sesión con su  red social preferida o complete el formulario para continuar.</string>
+    <string name="finalregistro">Porfavor ingrese su nombre de usuario, fecha de nacimiento y teléfono celular para continuar y finalizar su registro.</string>
+    <string name="prefs_file">com.example.centrocomercialonline.PREFERENCE_FILE_KEY</string>
+    <string name="facebook_app_id">352792329826246</string>
+    <string name="fb_login_protocol_scheme">fb352792329826246</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="actualizaruser">Porfavor ingrese su nuevo nombre de usuario y nuevo teléfono celular para continuar y actualizar su perfil.</string>
+
+</resources>

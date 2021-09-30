@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="149dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutcarrito"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/img_producto"
+                android:layout_width="122dp"
+                android:layout_height="126dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="13dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:scaleType="fitXY"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutcarrito"
+                android:layout_width="214dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="22dp"
+                android:layout_toEndOf="@+id/img_producto"
+                android:layout_toRightOf="@+id/img_producto"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txv_nombre_producto"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:text="Producto"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txv_precio_uc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio"
+                    android:textColor="#050000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txv_cantidad_productoc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numeric="integer"
+                    android:text="1"
+                    android:textColor="#050000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txv_precio_sc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Subtotal"
+                    android:textColor="#050000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

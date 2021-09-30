@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.centrocomercialonline">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CentroComercialOnline">
+        <activity
+            android:name=".Pedidos"
+            android:exported="true" />
+        <activity
+            android:name=".Notificaciones"
+            android:exported="true" />
+        <activity
+            android:name=".ActualizarUserInformation"
+            android:exported="true" />
+        <activity
+            android:name=".AgregarTarjeta"
+            android:exported="true" />
+        <activity
+            android:name=".MetodoPago"
+            android:exported="true" />
+        <activity
+            android:name=".BuscarProducto"
+            android:exported="true" />
+        <activity
+            android:name=".PerfilUsuario"
+            android:exported="true" />
+        <activity
+            android:name=".CategoriasElect"
+            android:exported="true" />
+        <activity
+            android:name=".CategoriasRopa"
+            android:exported="true" />
+        <activity
+            android:name=".DetalleProductos"
+            android:exported="true" />
+        <activity
+            android:name=".Comprar"
+            android:exported="true" />
+        <activity
+            android:name=".Carrito"
+            android:exported="true" />
+        <activity
+            android:name=".utils.ProductosAudioVideo"
+            android:exported="true" />
+        <activity
+            android:name=".utils.ProductosCamisetas"
+            android:exported="true" />
+        <activity
+            android:name=".utils.ProductosChaquetas"
+            android:exported="true" />
+        <activity
+            android:name=".utils.ProductosEntretenimiento"
+            android:exported="true" />
+        <activity
+            android:name=".utils.ProductosJeans"
+            android:exported="true" />
+        <activity
+            android:name=".utils.ProductosLineaBlanca"
+            android:exported="true" />
+        <activity
+            android:name=".utils.ProductosMovilidad"
+            android:exported="true" />
+        <activity
+            android:name=".utils.ProductosZapatos"
+            android:exported="true" />
+        <activity
+            android:name=".Tiendas"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterUserInformation"
+            android:exported="true" />
+        <activity
+            android:name=".Registrar"
+            android:exported="true"
+            android:label="@string/title_activity_registrarse" />
+        <activity
+            android:name=".LoginPage"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
